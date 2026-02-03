@@ -1,0 +1,7 @@
+{
+  "app": {
+    "name": "My Web Application",
+    "version": "1.0.0",
+    "description": "A web application"
+  }
+}

@@ -1,4 +1,4 @@
 // Main application script
-document.addEventListener('DOMContentLoaded', function() {
-  console.log('Application loaded');
+document.addEventListener('DOMContentLoaded', function () {
+    console.log('Application loaded');
 });

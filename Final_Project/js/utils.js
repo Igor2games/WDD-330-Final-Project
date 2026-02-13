@@ -99,3 +99,18 @@ export function log(message, type = 'info') {
             console.log(`${prefix} ${message}`);
     }
 }
+/**
+ * Check if dark mode is currently enabled
+ * @returns {boolean} - True if dark mode is enabled
+ */
+export function isDarkMode() {
+    return document.documentElement.getAttribute('data-theme') === 'dark';
+}
+
+/**
+ * Get the current theme
+ * @returns {string} - The current theme ('light' or 'dark')
+ */
+export function getCurrentTheme() {
+    return document.documentElement.getAttribute('data-theme') || 'light';
+}

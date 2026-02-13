@@ -23,6 +23,9 @@ export function createHeader() {
             <li><a href="pages/battle-simulator.html">Battle Simulator</a></li>
           </ul>
         </nav>
+        <button class="dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode">
+          <span class="toggle-icon">🌙</span>
+        </button>
       </div>
     </header>
   `;
@@ -30,9 +33,36 @@ export function createHeader() {
 }
 
 export function initHeader() {
-  const headerElement = document.querySelector('header');
-  if (headerElement) {
-    // Add any interactive header functionality here if needed
-    console.log('Header initialized');
+  const darkModeToggle = document.getElementById('darkModeToggle');
+
+  // Load dark mode preference from localStorage
+  const isDarkMode = localStorage.getItem('darkMode') === 'true';
+  if (isDarkMode) {
+    document.documentElement.setAttribute('data-theme', 'dark');
+    updateToggleIcon(darkModeToggle);
   }
+
+  // Add click listener to toggle dark mode
+  if (darkModeToggle) {
+    darkModeToggle.addEventListener('click', toggleDarkMode);
+  }
+
+  console.log('Header initialized');
+}
+
+function toggleDarkMode() {
+  const isDarkMode = document.documentElement.getAttribute('data-theme') === 'dark';
+  const newTheme = isDarkMode ? 'light' : 'dark';
+
+  document.documentElement.setAttribute('data-theme', newTheme);
+  localStorage.setItem('darkMode', newTheme === 'dark');
+
+  const toggle = document.getElementById('darkModeToggle');
+  updateToggleIcon(toggle);
+}
+
+function updateToggleIcon(toggle) {
+  if (!toggle) return;
+  const isDarkMode = document.documentElement.getAttribute('data-theme') === 'dark';
+  toggle.querySelector('.toggle-icon').textContent = isDarkMode ? '☀️' : '🌙';
 }

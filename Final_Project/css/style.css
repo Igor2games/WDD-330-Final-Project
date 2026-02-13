@@ -14,22 +14,36 @@
     --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+/* Dark Mode Colors */
+[data-theme="dark"] {
+    --primary-color: #60a5fa;
+    --text-color: #f5f5f5;
+    --light-bg: #1e1e1e;
+    --white: #2d2d2d;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
-    color: var(--text-color);
+    color: #ffffff;
     background-color: var(--light-bg);
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Header */
 .header {
     background-color: var(--primary-color);
-    color: var(--white);
+    color: #ffffff;
     padding: 1rem 0;
     box-shadow: var(--shadow);
     position: sticky;
     top: 0;
     z-index: 100;
+}
+
+[data-theme="dark"] .header {
+    background-color: #1e40af;
 }
 
 .header-container {
@@ -51,7 +65,7 @@ body {
     align-items: center;
     gap: 0.8rem;
     text-decoration: none;
-    color: var(--white);
+    color: #ffffff;
     transition: opacity 0.3s ease;
 }
 
@@ -78,7 +92,7 @@ body {
 }
 
 .navbar a {
-    color: var(--white);
+    color: #ffffff;
     text-decoration: none;
     font-weight: 500;
     transition: opacity 0.3s ease;
@@ -87,6 +101,32 @@ body {
 .navbar a:hover {
     opacity: 0.8;
     text-decoration: underline;
+}
+
+/* Dark Mode Toggle */
+.dark-mode-toggle {
+    background: none;
+    border: none;
+    color: var(--white);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+
+.dark-mode-toggle:hover {
+    transform: scale(1.1);
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.toggle-icon {
+    display: block;
 }
 
 /* Hero Section */
@@ -101,6 +141,11 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 500px;
+}
+
+[data-theme="dark"] .hero {
+    background: linear-gradient(135deg, #1e40af 0%, #a855f7 100%);
+    color: #ffffff;
 }
 
 .hero-pokemon-image {
@@ -189,20 +234,32 @@ body {
     line-height: 1.8;
 }
 
+[data-theme="dark"] .feature-block p {
+    color: #ffffff;
+}
+
+[data-theme="dark"] .feature-block h3 {
+    color: var(--primary-color);
+}
+
 /* Button */
 .btn {
     display: inline-block;
     background-color: var(--primary-color);
-    color: var(--white);
+    color: #ffffff;
     padding: 0.8rem 2rem;
     border-radius: 5px;
     text-decoration: none;
     font-weight: 600;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .btn:hover {
     background-color: var(--secondary-color);
+}
+
+[data-theme="dark"] .btn {
+    color: #ffffff;
 }
 
 /* Footer */
@@ -211,6 +268,11 @@ body {
     color: var(--white);
     padding: 3rem 0 1rem;
     margin-top: 4rem;
+}
+
+[data-theme="dark"] .footer {
+    background-color: #1a1a1a;
+    color: var(--text-color);
 }
 
 .footer-container {
@@ -252,6 +314,14 @@ body {
 .footer-section p {
     margin-bottom: 0.5rem;
     color: #ccc;
+}
+
+[data-theme="dark"] .footer-section a {
+    color: #ffffff;
+}
+
+[data-theme="dark"] .footer-section p {
+    color: #ffffff;
 }
 
 .footer-container::after {

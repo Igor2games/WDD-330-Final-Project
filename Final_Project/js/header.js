@@ -3,6 +3,8 @@
  * Manages the header component for all pages
  */
 
+import { initDarkMode } from './dark.js';
+
 export function createHeader() {
   const headerHTML = `
     <!-- Header -->
@@ -33,36 +35,8 @@ export function createHeader() {
 }
 
 export function initHeader() {
-  const darkModeToggle = document.getElementById('darkModeToggle');
-
-  // Load dark mode preference from localStorage
-  const isDarkMode = localStorage.getItem('darkMode') === 'true';
-  if (isDarkMode) {
-    document.documentElement.setAttribute('data-theme', 'dark');
-    updateToggleIcon(darkModeToggle);
-  }
-
-  // Add click listener to toggle dark mode
-  if (darkModeToggle) {
-    darkModeToggle.addEventListener('click', toggleDarkMode);
-  }
+  // Initialize dark mode functionality
+  initDarkMode();
 
   console.log('Header initialized');
-}
-
-function toggleDarkMode() {
-  const isDarkMode = document.documentElement.getAttribute('data-theme') === 'dark';
-  const newTheme = isDarkMode ? 'light' : 'dark';
-
-  document.documentElement.setAttribute('data-theme', newTheme);
-  localStorage.setItem('darkMode', newTheme === 'dark');
-
-  const toggle = document.getElementById('darkModeToggle');
-  updateToggleIcon(toggle);
-}
-
-function updateToggleIcon(toggle) {
-  if (!toggle) return;
-  const isDarkMode = document.documentElement.getAttribute('data-theme') === 'dark';
-  toggle.querySelector('.toggle-icon').textContent = isDarkMode ? '☀️' : '🌙';
 }

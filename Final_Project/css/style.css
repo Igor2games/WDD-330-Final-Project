@@ -718,6 +718,163 @@ body {
     background-color: #0b4f9e;
 }
 
+/* Newsletter */
+.newsletter {
+    padding: 3rem 0 4rem;
+    background-color: var(--light-bg);
+    min-height: 70vh;
+}
+
+.newsletter h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.newsletter-intro {
+    text-align: center;
+    color: #666;
+    margin-bottom: 2rem;
+}
+
+[data-theme="dark"] .newsletter-intro {
+    color: #ffffff;
+}
+
+.newsletter-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    gap: 2rem;
+    background-color: var(--white);
+    border-radius: 14px;
+    padding: 2rem;
+    box-shadow: var(--shadow);
+}
+
+[data-theme="dark"] .newsletter-card {
+    background-color: #2d2d2d;
+}
+
+.newsletter-form {
+    display: grid;
+    gap: 1.2rem;
+}
+
+.newsletter-form label {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 0.4rem;
+    display: inline-block;
+}
+
+[data-theme="dark"] .newsletter-form label {
+    color: #ffffff;
+}
+
+.newsletter-form input,
+.newsletter-form select {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+[data-theme="dark"] .newsletter-form input,
+[data-theme="dark"] .newsletter-form select {
+    background-color: #1f1f1f;
+    color: #ffffff;
+    border-color: #444;
+}
+
+.newsletter-form input:focus,
+.newsletter-form select:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 10px rgba(0, 102, 204, 0.2);
+}
+
+.form-row {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-row--checkbox label {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-weight: 500;
+}
+
+.form-row--checkbox input {
+    width: 16px;
+    height: 16px;
+    accent-color: var(--primary-color);
+}
+
+.newsletter-benefits {
+    background: rgba(0, 0, 0, 0.04);
+    border-radius: 12px;
+    padding: 1.5rem;
+}
+
+[data-theme="dark"] .newsletter-benefits {
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.newsletter-benefits h2 {
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.newsletter-benefits ul {
+    list-style: none;
+    display: grid;
+    gap: 0.8rem;
+    color: #333;
+}
+
+[data-theme="dark"] .newsletter-benefits ul {
+    color: #ffffff;
+}
+
+.newsletter-benefits li {
+    padding-left: 1.4rem;
+    position: relative;
+}
+
+.newsletter-benefits li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--secondary-color);
+    font-weight: 700;
+}
+
+.newsletter-success {
+    display: none;
+    text-align: center;
+    padding: 1.5rem;
+    border-radius: 12px;
+    background: rgba(0, 0, 0, 0.04);
+    color: #333;
+}
+
+[data-theme="dark"] .newsletter-success {
+    background: rgba(255, 255, 255, 0.06);
+    color: #ffffff;
+}
+
+.newsletter-success h2 {
+    margin-bottom: 0.6rem;
+    color: var(--primary-color);
+}
+
+.newsletter-success p {
+    margin-bottom: 1rem;
+}
+
 /* Footer */
 .footer {
     background-color: #222;
@@ -836,5 +993,9 @@ body {
 
     .cart-item__qty {
         justify-content: center;
+    }
+
+    .newsletter-card {
+        grid-template-columns: 1fr;
     }
 }

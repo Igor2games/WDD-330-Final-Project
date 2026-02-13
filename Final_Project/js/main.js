@@ -10,6 +10,7 @@ import { initPokedex } from './pokedex.js';
 import { initShop } from './pokemarket.js';
 import { initCartPage } from './cart-page.js';
 import { initOrderComplete } from './order-complete.js';
+import { initNewsletter } from './newsletter.js';
 import { log } from './utils.js';
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -50,6 +51,11 @@ document.addEventListener('DOMContentLoaded', function () {
     const orderId = document.getElementById('orderId');
     if (orderId) {
         initOrderComplete();
+    }
+
+    const newsletterForm = document.querySelector('.newsletter-form');
+    if (newsletterForm) {
+        initNewsletter();
     }
 
     log('All modules initialized', 'info');

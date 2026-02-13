@@ -6,6 +6,7 @@
 import { createHeader, initHeader } from './header.js';
 import { createFooter, initFooter } from './footer.js';
 import { initHero } from './hero.js';
+import { initPokedex } from './pokedex.js';
 import { log } from './utils.js';
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -26,6 +27,12 @@ document.addEventListener('DOMContentLoaded', function () {
     initHeader();
     initFooter();
     initHero();
+
+    // Check if we're on the Pokedex page
+    const pokedexContainer = document.getElementById('pokedexContainer');
+    if (pokedexContainer) {
+        initPokedex();
+    }
 
     log('All modules initialized', 'info');
 });

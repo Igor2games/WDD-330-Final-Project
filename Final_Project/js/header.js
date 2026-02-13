@@ -11,18 +11,18 @@ export function createHeader() {
     <header class="header">
       <div class="header-container">
         <div class="logo">
-          <a href="index.html">
-            <img src="images/pokeball.svg" alt="Pokecenter Logo" class="logo-icon">
+          <a href="index.html" data-base-link="home">
+            <img src="images/pokeball.svg" alt="Pokecenter Logo" class="logo-icon" data-asset="logo">
             <span class="logo-text">Pokecenter</span>
           </a>
         </div>
         <nav class="navbar">
           <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="pages/pokedex.html">Pokedex</a></li>
-            <li><a href="pages/pokemarket.html">Shop</a></li>
-            <li><a href="pages/newsletter.html">Newsletter</a></li>
-            <li><a href="pages/battle-simulator.html">Battle Simulator</a></li>
+            <li><a href="index.html" data-base-link="home">Home</a></li>
+            <li><a href="pages/pokedex.html" data-base-link="pokedex">Pokedex</a></li>
+            <li><a href="pages/pokemarket.html" data-base-link="pokemarket">Shop</a></li>
+            <li><a href="pages/newsletter.html" data-base-link="newsletter">Newsletter</a></li>
+            <li><a href="pages/battle-simulator.html" data-base-link="battle-simulator">Battle Simulator</a></li>
           </ul>
         </nav>
         <button class="dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode">
@@ -37,6 +37,29 @@ export function createHeader() {
 export function initHeader() {
   // Initialize dark mode functionality
   initDarkMode();
+
+  const basePath = window.location.pathname.includes('/pages/') ? '../' : '';
+
+  const logoImg = document.querySelector('[data-asset="logo"]');
+  if (logoImg) {
+    logoImg.setAttribute('src', `${basePath}images/pokeball.svg`);
+  }
+
+  const linkMap = {
+    home: `${basePath}index.html`,
+    pokedex: `${basePath}pages/pokedex.html`,
+    pokemarket: `${basePath}pages/pokemarket.html`,
+    newsletter: `${basePath}pages/newsletter.html`,
+    'battle-simulator': `${basePath}pages/battle-simulator.html`,
+  };
+
+  document.querySelectorAll('[data-base-link]')
+    .forEach((link) => {
+      const key = link.getAttribute('data-base-link');
+      if (key && linkMap[key]) {
+        link.setAttribute('href', linkMap[key]);
+      }
+    });
 
   console.log('Header initialized');
 }

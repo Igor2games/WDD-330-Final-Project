@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokecenter | Pokedex</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/pokedex.css" />
+    <script src="../js/main.js" type="module"></script>
+</head>
+
+<body>
+    <div id="header-container"></div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Pokedex Section -->
+        <section class="pokedex">
+            <div class="container">
+                <h1>Pokédex</h1>
+
+                <!-- Search and Filter -->
+                <div class="pokedex-controls">
+                    <input type="text" id="searchInput" placeholder="Search Pokémon by name..." class="search-input" />
+                    <div id="filterContainer" class="filter-container">
+                        <!-- Filters will be populated dynamically -->
+                    </div>
+                </div>
+
+                <!-- Pokedex List -->
+                <div id="pokedexContainer" class="pokedex-grid">
+                    <!-- Pokémon will be loaded here dynamically -->
+                </div>
+
+                <!-- Loading Indicator -->
+                <div id="loadingIndicator" class="loading-indicator" style="display: none;">
+                    <p>Loading Pokémon...</p>
+                </div>
+
+                <!-- Error Message -->
+                <div id="errorMessage" class="error-message" style="display: none;">
+                    <p>Error loading Pokémon data. Please try again.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-container"></div>
+</body>
+
+</html>

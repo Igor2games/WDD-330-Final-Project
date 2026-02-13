@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokecenter | Shop</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <script src="../js/main.js" type="module"></script>
+</head>
+
+<body>
+    <div id="header-container"></div>
+
+    <main>
+        <section class="shop">
+            <div class="container">
+                <h1>Pokemarket</h1>
+
+                <div class="shop-controls">
+                    <input type="text" id="shopSearch" class="search-input" placeholder="Search items..." />
+                    <select id="shopCategory" class="select-input">
+                        <option value="">All Categories</option>
+                    </select>
+                    <button id="shopRefresh" class="btn" type="button">Refresh</button>
+                </div>
+
+                <div id="shopGrid" class="shop-grid">
+                    <!-- Products load here -->
+                </div>
+
+                <div id="shopLoading" class="loading-indicator" style="display: none;">
+                    <p>Loading items...</p>
+                </div>
+
+                <div id="shopError" class="error-message" style="display: none;">
+                    <p>Unable to load items. Please try again.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-container"></div>
+</body>
+
+</html>

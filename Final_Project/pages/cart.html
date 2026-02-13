@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokecenter | Cart</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <script src="../js/main.js" type="module"></script>
+</head>
+
+<body>
+    <div id="header-container"></div>
+
+    <main>
+        <section class="cart">
+            <div class="container">
+                <h1>Your Cart</h1>
+                <p class="section-subtitle">Review your items before checkout.</p>
+
+                <div class="cart-layout">
+                    <div id="cartItems" class="cart-items">
+                        <!-- Cart items render here -->
+                    </div>
+
+                    <aside class="cart-summary">
+                        <h2>Order Summary</h2>
+                        <div class="summary-line">
+                            <span>Items</span>
+                            <span id="cartItemCount">0</span>
+                        </div>
+                        <div class="summary-line">
+                            <span>Subtotal</span>
+                            <span id="cartSubtotal">$0.00</span>
+                        </div>
+                        <div class="summary-line">
+                            <span>Taxes</span>
+                            <span id="cartTaxes">$0.00</span>
+                        </div>
+                        <div class="summary-line total">
+                            <span>Total</span>
+                            <span id="cartTotal">$0.00</span>
+                        </div>
+                        <button id="checkoutButton" class="btn" type="button">Proceed to Checkout</button>
+                    </aside>
+                </div>
+
+                <div id="cartEmpty" class="empty-state" style="display: none;">
+                    <p>Your cart is empty. Head back to the shop to add items.</p>
+                    <a href="pokemarket.html" class="btn">Go to Shop</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-container"></div>
+</body>
+
+</html>

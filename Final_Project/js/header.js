@@ -25,9 +25,14 @@ export function createHeader() {
             <li><a href="pages/battle-simulator.html" data-base-link="battle-simulator">Battle Simulator</a></li>
           </ul>
         </nav>
-        <button class="dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode">
-          <span class="toggle-icon">🌙</span>
-        </button>
+        <div class="header-actions">
+          <a class="cart-link" id="cartLink" href="pages/cart.html" data-base-link="cart" aria-label="View cart">
+            <span class="cart-icon">🛒</span>
+          </a>
+          <button class="dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode">
+            <span class="toggle-icon">🌙</span>
+          </button>
+        </div>
       </div>
     </header>
   `;
@@ -49,6 +54,7 @@ export function initHeader() {
     home: `${basePath}index.html`,
     pokedex: `${basePath}pages/pokedex.html`,
     pokemarket: `${basePath}pages/pokemarket.html`,
+    cart: `${basePath}pages/cart.html`,
     newsletter: `${basePath}pages/newsletter.html`,
     'battle-simulator': `${basePath}pages/battle-simulator.html`,
   };

@@ -1,0 +1,95 @@
+{
+    "items": [
+        {
+            "id": "potion",
+            "name": "Potion",
+            "apiUrl": "https://pokeapi.co/api/v2/item/potion/",
+            "price": 200,
+            "currency": "P"
+        },
+        {
+            "id": "super-potion",
+            "name": "Super Potion",
+            "apiUrl": "https://pokeapi.co/api/v2/item/super-potion/",
+            "price": 700,
+            "currency": "P"
+        },
+        {
+            "id": "hyper-potion",
+            "name": "Hyper Potion",
+            "apiUrl": "https://pokeapi.co/api/v2/item/hyper-potion/",
+            "price": 1200,
+            "currency": "P"
+        },
+        {
+            "id": "max-potion",
+            "name": "Max Potion",
+            "apiUrl": "https://pokeapi.co/api/v2/item/max-potion/",
+            "price": 2500,
+            "currency": "P"
+        },
+        {
+            "id": "revive",
+            "name": "Revive",
+            "apiUrl": "https://pokeapi.co/api/v2/item/revive/",
+            "price": 1500,
+            "currency": "P"
+        },
+        {
+            "id": "max-revive",
+            "name": "Max Revive",
+            "apiUrl": "https://pokeapi.co/api/v2/item/max-revive/",
+            "price": 4000,
+            "currency": "P"
+        },
+        {
+            "id": "poke-ball",
+            "name": "Poke Ball",
+            "apiUrl": "https://pokeapi.co/api/v2/item/poke-ball/",
+            "price": 200,
+            "currency": "P"
+        },
+        {
+            "id": "great-ball",
+            "name": "Great Ball",
+            "apiUrl": "https://pokeapi.co/api/v2/item/great-ball/",
+            "price": 600,
+            "currency": "P"
+        },
+        {
+            "id": "ultra-ball",
+            "name": "Ultra Ball",
+            "apiUrl": "https://pokeapi.co/api/v2/item/ultra-ball/",
+            "price": 1200,
+            "currency": "P"
+        },
+        {
+            "id": "full-restore",
+            "name": "Full Restore",
+            "apiUrl": "https://pokeapi.co/api/v2/item/full-restore/",
+            "price": 3000,
+            "currency": "P"
+        },
+        {
+            "id": "antidote",
+            "name": "Antidote",
+            "apiUrl": "https://pokeapi.co/api/v2/item/antidote/",
+            "price": 100,
+            "currency": "P"
+        },
+        {
+            "id": "paralyze-heal",
+            "name": "Paralyze Heal",
+            "apiUrl": "https://pokeapi.co/api/v2/item/paralyze-heal/",
+            "price": 200,
+            "currency": "P"
+        },
+        {
+            "id": "escape-rope",
+            "name": "Escape Rope",
+            "apiUrl": "https://pokeapi.co/api/v2/item/escape-rope/",
+            "price": 550,
+            "currency": "P"
+        }
+    ]
+}

@@ -7,6 +7,9 @@ import { createHeader, initHeader } from './header.js';
 import { createFooter, initFooter } from './footer.js';
 import { initHero } from './hero.js';
 import { initPokedex } from './pokedex.js';
+import { initShop } from './pokemarket.js';
+import { initCartPage } from './cart-page.js';
+import { initOrderComplete } from './order-complete.js';
 import { log } from './utils.js';
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -32,6 +35,21 @@ document.addEventListener('DOMContentLoaded', function () {
     const pokedexContainer = document.getElementById('pokedexContainer');
     if (pokedexContainer) {
         initPokedex();
+    }
+
+    const shopGrid = document.getElementById('shopGrid');
+    if (shopGrid) {
+        initShop();
+    }
+
+    const cartItems = document.getElementById('cartItems');
+    if (cartItems) {
+        initCartPage();
+    }
+
+    const orderId = document.getElementById('orderId');
+    if (orderId) {
+        initOrderComplete();
     }
 
     log('All modules initialized', 'info');

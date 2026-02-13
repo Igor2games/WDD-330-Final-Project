@@ -13,6 +13,8 @@ const selectedGenerations = new Set();
 let modalElement;
 let modalBodyElement;
 const FILTER_STORAGE_KEY = 'pokedexFilters';
+const PAGE_SIZE = 50;
+let currentPage = 1;
 
 /**
  * Initialize the Pokedex page
@@ -33,6 +35,7 @@ export async function initPokedex() {
 
         // Set up search and filter functionality
         setupSearchAndFilter();
+        setupPagination();
         setupModal();
         setupCardClickHandler();
 
@@ -222,7 +225,7 @@ function openPokemonModal(pokemon) {
 
     modalBodyElement.innerHTML = `
         <div class="modal-header">
-            <img src="${pokemon.image}" alt="${pokemon.name}" class="modal-image">
+            <img src="${pokemon.image}" alt="${pokemon.name}" class="modal-image" loading="lazy">
             <div class="modal-title">
                 <h2>${pokemon.name}</h2>
                 <p class="modal-id">#${String(pokemon.id).padStart(4, '0')}</p>
@@ -300,7 +303,7 @@ function createEvolutionButton(evo) {
     return `
         <button class="evolution-item" data-evolution-name="${evo.name.toLowerCase()}" aria-label="${evo.name}">
             <span class="evolution-circle">
-                ${evoImage ? `<img src="${evoImage}" alt="${capitalize(evo.name)}" />` : evo.name.charAt(0).toUpperCase()}
+                ${evoImage ? `<img src="${evoImage}" alt="${capitalize(evo.name)}" loading="lazy" />` : evo.name.charAt(0).toUpperCase()}
             </span>
             <span class="evolution-name">${capitalize(evo.name)}</span>
         </button>
@@ -368,7 +371,91 @@ function applyFilters() {
         return matchesSearch && matchesTypes && matchesGeneration;
     });
 
-    renderPokedexGrid(filteredPokemon);
+    currentPage = 1;
+    renderCurrentPage();
+}
+
+function setupPagination() {
+    const prevButtons = [
+        document.getElementById('prevPage'),
+        document.getElementById('prevPageTop')
+    ].filter(Boolean);
+    const nextButtons = [
+        document.getElementById('nextPage'),
+        document.getElementById('nextPageTop')
+    ].filter(Boolean);
+
+    prevButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+            if (currentPage > 1) {
+                currentPage -= 1;
+                renderCurrentPage();
+                scrollToPokedexTop();
+            }
+        });
+    });
+
+    nextButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+            const totalPages = Math.max(1, Math.ceil(filteredPokemon.length / PAGE_SIZE));
+            if (currentPage < totalPages) {
+                currentPage += 1;
+                renderCurrentPage();
+                scrollToPokedexTop();
+            }
+        });
+    });
+}
+
+function renderCurrentPage() {
+    const startIndex = (currentPage - 1) * PAGE_SIZE;
+    const pageItems = filteredPokemon.slice(startIndex, startIndex + PAGE_SIZE);
+    renderPokedexGrid(pageItems);
+    updatePaginationControls();
+}
+
+function updatePaginationControls() {
+    const paginations = [
+        document.getElementById('pokedexPagination'),
+        document.getElementById('pokedexPaginationTop')
+    ].filter(Boolean);
+    const prevButtons = [
+        document.getElementById('prevPage'),
+        document.getElementById('prevPageTop')
+    ].filter(Boolean);
+    const nextButtons = [
+        document.getElementById('nextPage'),
+        document.getElementById('nextPageTop')
+    ].filter(Boolean);
+    const pageInfos = [
+        document.getElementById('pageInfo'),
+        document.getElementById('pageInfoTop')
+    ].filter(Boolean);
+
+    const totalPages = Math.max(1, Math.ceil(filteredPokemon.length / PAGE_SIZE));
+
+    paginations.forEach((pagination) => {
+        pagination.style.display = totalPages > 1 ? 'flex' : 'none';
+    });
+
+    pageInfos.forEach((pageInfo) => {
+        pageInfo.textContent = `Page ${currentPage} of ${totalPages}`;
+    });
+
+    prevButtons.forEach((prevButton) => {
+        prevButton.disabled = currentPage <= 1;
+    });
+
+    nextButtons.forEach((nextButton) => {
+        nextButton.disabled = currentPage >= totalPages;
+    });
+}
+
+function scrollToPokedexTop() {
+    const section = document.querySelector('.pokedex');
+    if (!section) return;
+
+    section.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
 function buildFilters() {

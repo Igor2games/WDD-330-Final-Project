@@ -256,6 +256,29 @@
     margin-bottom: 2rem;
 }
 
+/* Pagination */
+.pokedex-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.pokedex-pagination .page-info {
+    font-weight: 600;
+    color: #666;
+}
+
+[data-theme="dark"] .pokedex-pagination .page-info {
+    color: #ffffff;
+}
+
+.pokedex-pagination button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
 /* Modal */
 .pokedex-modal {
     position: fixed;

@@ -12,7 +12,7 @@ export function createHeader() {
       <div class="header-container">
         <div class="logo">
           <a href="index.html" data-base-link="home">
-            <img src="images/pokeball.svg" alt="Pokecenter Logo" class="logo-icon" data-asset="logo">
+            <img src="images/pokeball.svg" alt="Pokecenter Logo" class="logo-icon" data-asset="logo" loading="lazy">
             <span class="logo-text">Pokecenter</span>
           </a>
         </div>

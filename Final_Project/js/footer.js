@@ -4,8 +4,8 @@
  */
 
 export function createFooter() {
-    const currentYear = new Date().getFullYear();
-    const footerHTML = `
+  const currentYear = new Date().getFullYear();
+  const footerHTML = `
     <!-- Footer -->
     <footer class="footer">
       <div class="footer-container">
@@ -19,9 +19,10 @@ export function createFooter() {
             <ul>
               <li><a href="index.html">Home</a></li>
               <li><a href="pages/pokedex.html">Pokedex</a></li>
+              <li><a href="pages/video.html">Video</a></li>
               <li><a href="pages/pokemarket.html">Pokemarket</a></li>
               <li><a href="pages/newsletter.html">Newsletter</a></li>
-              <li><a href="pages/battle-simulator.html">Battle Simulator</a></li>
+              <li><a class="is-disabled" href="#" aria-disabled="true" tabindex="-1">Battle Simulator</a></li>
             </ul>
           </div>
           <div class="footer-section">
@@ -33,13 +34,13 @@ export function createFooter() {
       </div>
     </footer>
   `;
-    return footerHTML;
+  return footerHTML;
 }
 
 export function initFooter() {
-    const footerElement = document.querySelector('footer');
-    if (footerElement) {
-        // Add any interactive footer functionality here if needed
-        console.log('Footer initialized');
-    }
+  const footerElement = document.querySelector('footer');
+  if (footerElement) {
+    // Add any interactive footer functionality here if needed
+    console.log('Footer initialized');
+  }
 }

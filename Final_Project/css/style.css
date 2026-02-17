@@ -103,6 +103,20 @@ body {
     text-decoration: underline;
 }
 
+.navbar a.is-disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+    pointer-events: none;
+    text-decoration: none;
+}
+
+.footer a.is-disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+    pointer-events: none;
+    text-decoration: none;
+}
+
 .header-actions {
     display: flex;
     align-items: center;
@@ -307,6 +321,28 @@ body {
 
 .btn:hover {
     background-color: var(--secondary-color);
+}
+
+.btn.is-disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    pointer-events: none;
+    background-color: #888;
+    color: #ffffff;
+}
+
+.feature-note {
+    display: inline-block;
+    margin-bottom: 0.6rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+}
+
+[data-theme="dark"] .feature-note {
+    color: #d1d5db;
 }
 
 .btn.is-added {

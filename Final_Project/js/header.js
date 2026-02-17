@@ -22,7 +22,7 @@ export function createHeader() {
             <li><a href="pages/pokedex.html" data-base-link="pokedex">Pokedex</a></li>
             <li><a href="pages/pokemarket.html" data-base-link="pokemarket">Shop</a></li>
             <li><a href="pages/newsletter.html" data-base-link="newsletter">Newsletter</a></li>
-            <li><a href="pages/battle-simulator.html" data-base-link="battle-simulator">Battle Simulator</a></li>
+            <li><a class="is-disabled" href="#" data-base-link="battle-simulator" data-disabled="true" aria-disabled="true" tabindex="-1">Battle Simulator</a></li>
           </ul>
         </nav>
         <div class="header-actions">
@@ -61,6 +61,9 @@ export function initHeader() {
 
   document.querySelectorAll('[data-base-link]')
     .forEach((link) => {
+      if (link.hasAttribute('data-disabled')) {
+        return;
+      }
       const key = link.getAttribute('data-base-link');
       if (key && linkMap[key]) {
         link.setAttribute('href', linkMap[key]);
